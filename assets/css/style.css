@@ -1,5 +1,6 @@
 :root {
     --font-primary: "Inter", sans-serif;
+    --color-primary: #6cff9f;
     --card-bg: #f1f1f1;
 }
 
@@ -41,10 +42,14 @@ body {
         font-family: inherit;
         padding: 0.5em 1em;
         cursor: pointer;
+
+        &.active {
+            background-color: var(--color-primary);
+        }
     }
 
     .tabs_content {
-        display: grid;
+        /* display: grid; */
         grid-template-areas: 'center';
     }
 
@@ -53,6 +58,11 @@ body {
 
         &:not(.active) {
             display: none;
+            
+            .swiper {
+                display: none;
+
+            }
         }
     }
 }
