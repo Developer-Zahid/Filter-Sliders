@@ -31,6 +31,9 @@ body {
 .tabs {
     
     .tabs_nav {
+        position: sticky;
+        top: 20px;
+        z-index: 3;
         display: flex;
         justify-content: flex-end;
         gap: 1rem;
@@ -49,20 +52,17 @@ body {
     }
 
     .tabs_content {
-        /* display: grid; */
+        display: grid;
         grid-template-areas: 'center';
     }
 
     .tabs_pane {
         grid-area: center;
+        min-width: 0;
 
         &:not(.active) {
-            display: none;
-            
-            .swiper {
-                display: none;
-
-            }
+            pointer-events: none;
+            z-index: -1;
         }
     }
 }
