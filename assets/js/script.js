@@ -40,6 +40,7 @@ $(document).ready(function () {
         grabCursor: true,
         on: {
             init: function() {
+                $('[data-filter].active').prop('disabled', true);
                 $('[data-swiper-navigation="prev"]').prop('disabled', true)
                 slideInAnimations($('[data-slider-filter].active').get(0).querySelectorAll('.swiper-slide'), 100);
             },
@@ -61,8 +62,8 @@ $(document).ready(function () {
     });
     
     $('[data-filter]').on('click', function(){
-        $(this).siblings('[data-filter]').removeClass('active');
-        $(this).addClass('active');
+        $(this).siblings('[data-filter]').removeClass('active').removeAttr('disabled');
+        $(this).addClass('active').prop('disabled', true);
         indicatorUpdate();
         $('[data-slider-filter]').siblings('[data-slider-filter]').removeClass('active');
         $(`[data-slider-filter="${$(this).data('filter')}"]`).addClass('active');
