@@ -1,7 +1,9 @@
 :root {
     --font-primary: "Inter", sans-serif;
-    --color-primary: #6cff9f;
-    --card-bg: #f1f1f1;
+    --body-bg: #f6f7f9;
+    --indicator-bg: #171a17;
+    --card-bg: #ffffff;
+    --card-text: #555555;
 }
 
 * {
@@ -15,6 +17,17 @@ body {
     font-family: var(--font-primary);
     font-weight: 400;
     line-height: 1.4;
+    background-color: var(--body-bg);
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+img, svg
+{
+    display: block;
+    max-width: 100%;
 }
 
 .section {
@@ -29,25 +42,62 @@ body {
 }
 
 .tabs {
-    
+    display: grid;
+    gap: clamp(2rem, 1.6684vw + 1.4995rem, 3rem);
+
     .tabs_nav {
-        position: sticky;
-        top: 20px;
-        z-index: 3;
+        
+        @media screen and (min-width: 480px) {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    
+    .tabs_list {
+        position: relative;
+        overflow: clip;
+        isolation: isolate;
         display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-        margin-block-end: 2rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.4rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--indicator-bg);
+        border-radius: 0.5rem;
+
+        @media screen and (max-width: 479px) {
+            flex-direction: column;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            transform: translateX(var(--_indicator-position-left, 0.4rem)) translateY(var(--_indicator-position-top, 0.4rem));
+            background-color: var(--indicator-bg);
+            border-radius: 0.3rem;
+            width: var(--_indicator-width, 112px);
+            height: var(--_indicator-height, 39px);
+            will-change: width, height, transform;
+            transition:
+                all 0.3s ease,
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
     }
 
     .tabs_btn {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-family: inherit;
-        padding: 0.5em 1em;
-        cursor: pointer;
+        padding: 0.6em 1em;
+        border: 0;
+        background-color: transparent;
+        transition: all 0.2s ease;
+        border-radius: 0.3rem;
 
         &.active {
-            background-color: var(--color-primary);
+            color: #ffffff;
         }
     }
 
@@ -62,7 +112,46 @@ body {
 
         &:not(.active) {
             pointer-events: none;
-            z-index: -1;
+
+            .swiper {
+                opacity: 0;
+                transform: scale(.98) translateY(-20px) translateX(-20px);
+            }
+        }
+    }
+
+    .tabs_footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        @media screen and (min-width: 480px) {
+            justify-content: flex-end;
+        }
+    }
+
+    .tabs_navigation {
+        display: grid;
+        place-items: center;
+        font-size: 1.2rem;
+        width: 2.2em;
+        aspect-ratio: 1/1;
+        color: var(--indicator-bg);
+        background-color: #ffffff;
+        border: 1px solid var(--indicator-bg);
+        border-radius: 0.2rem;
+        transition: all 0.2s ease;
+
+        &:disabled {
+            opacity: 0.5;
+            filter: contrast(0.7);
+            pointer-events: none;
+        }
+
+        &:active {
+            color: #ffffff;
+            background-color: var(--indicator-bg);
         }
     }
 }
@@ -70,6 +159,9 @@ body {
 
 .swiper {
     overflow: visible !important;
+    transition:
+        opacity .3s ease-in,
+        transform .3s ease-in;
 
     .swiper-slide {
         width: auto;
@@ -81,9 +173,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, .5005vw + 1.0498rem, 1.5rem);
     font-weight: 700;
-    width: 360px;
+    width: min(360px, calc(100vw - 30px - 1.5rem));
     aspect-ratio: 1 / 1.4;
+    color: var(--card-text);
     background-color: var(--card-bg);
+    box-shadow: 42px 34px 120px #0000000a;
+    border-radius: 0.5rem;
 }

@@ -11,14 +11,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-    <a href="https://www.raycast.com/" target="_blank">Source</a>
     <section class="section">
         <div class="container">
             <div class="tabs">
-                <nav class="tabs_nav">
-                    <button type="button" class="tabs_btn active" data-filter="category-1">Category 1</button>
-                    <button type="button" class="tabs_btn" data-filter="category-2">Category 2</button>
-                </nav>
+                <div class="tabs_nav">
+                    <nav class="tabs_list" data-filter-list>
+                        <button type="button" class="tabs_btn active" data-filter="category-1">Category 1</button>
+                        <button type="button" class="tabs_btn" data-filter="category-2">Category 2</button>
+                        <button type="button" class="tabs_btn" data-filter="category-3">Category 3</button>
+                    </nav>
+                </div>
                 <div class="tabs_content">
                     <div class="tabs_pane active" data-slider-filter="category-1">
                         <div class="swiper" data-swiper="Filter-Slider">
@@ -40,8 +42,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
-                        </div>
                     </div>
                     <div class="tabs_pane" data-slider-filter="category-2">
                         <div class="swiper" data-swiper="Filter-Slider">
@@ -61,17 +61,57 @@
                                 <div class="swiper-slide">
                                     <figure class="tf-card">Category 2 Slide 5</figure>
                                 </div>
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 2 Slide 6</figure>
+                                </div>
                             </div>
                         </div>
-                        <div>
+                    </div>
+                    <div class="tabs_pane" data-slider-filter="category-3">
+                        <div class="swiper" data-swiper="Filter-Slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 3 Slide 1</figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 3 Slide 2</figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 3 Slide 3</figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 3 Slide 4</figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 3 Slide 5</figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 3 Slide 6</figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="tf-card">Category 3 Slide 7</figure>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <footer class="tabs_footer">
+                    <button type="button" class="tabs_navigation" aria-label="Prev" data-swiper-navigation="prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="tabs_navigation" aria-label="next" data-swiper-navigation="next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </button>
+                </footer>
             </div>
         </div>
     </section>
 
-    <!-- Swiper JS -->
+    <!-- All JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
